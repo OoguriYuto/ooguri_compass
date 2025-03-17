@@ -16,7 +16,7 @@
     </resultMap>
 
     <select id="findAll" resultMap="UserResultMap">
-        SELECT * FROM users;
+        SELECT id, name, mail, password, roles, created, last_logined, enabled FROM users;
     </select>
 
 </mapper>
