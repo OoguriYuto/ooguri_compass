@@ -19,4 +19,25 @@
         SELECT id, name, mail, password, roles, created, last_logined, enabled FROM users;
     </select>
 
+    <select id="findById" resultMap="UserResultMap">
+        SELECT id, name, mail, password, roles, created, last_logined, enabled FROM users WHERE id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (name, mail, password, roles, created, last_logined, enabled)
+        VALUES (#{name}, #{mail}, #{password}, #{roles}, #{created}, #{lastLogined}, #{enabled})
+    </insert>
+
+    <update id="update">
+        UPDATE users
+        SET name = #{user.name},
+            mail = #{user.mail},
+            password = #{user.password},
+            roles = #{user.roles},
+            created = #{user.created},
+            last_logined = #{user.lastLogined},
+            enabled = #{user.enabled}
+        WHERE id = #{id}
+    </update>
+
 </mapper>
