@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class ControllerExceptionHandler {
+public class ExceptionController {
 
     @ExceptionHandler({ Exception.class })
     public Errors unhandledException(Exception ex) {
