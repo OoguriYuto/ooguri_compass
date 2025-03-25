@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
+import com.example.demo.exception.ApplicationException;
+import com.example.demo.exception.Errors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,5 +58,16 @@ public class UserController {
         User updatedUser = new User(id, username, mail, password, roles, LocalDateTime.now(), LocalDateTime.now(), true);
         int updatedRowCount = userService.updateUser(id, updatedUser);
         return updatedRowCount > 0 ? "Update successful (Updated rows: " + updatedRowCount + ")" : "Update failed";
+    }
+
+    // 例外を投げるエンドポイント
+    @GetMapping("/exception")
+    public void throwException() throws Exception {
+        throw new Exception("This is a generic exception");
+    }
+
+    @GetMapping("/ApplicationException")
+    public void throwApplicationException() {
+        throw new ApplicationException(Errors.INVALID_REQUEST);
     }
 }
