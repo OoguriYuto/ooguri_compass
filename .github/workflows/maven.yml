@@ -36,3 +36,8 @@ jobs:
       - name: Update dependency graph
         if: github.event_name == 'push'
         uses: advanced-security/maven-dependency-submission-action@v4
+        with:
+          directory: .
+          ignore-maven-wrapper: true
+          snapshot-include-file-name: true
+
