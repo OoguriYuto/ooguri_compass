@@ -6,6 +6,7 @@ import com.example.demo.exception.Errors;
 import com.example.demo.repository.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UserRepositoryImpl {
     public List<User> findAll() {
         try {
             return userMapper.findAll();
-        } catch (Exception e) {
+        } catch (DataAccessException e) {
             log.error("Error in findAll", e);
             throw new ApplicationException(Errors.DB_ERROR);
         }
@@ -28,7 +29,7 @@ public class UserRepositoryImpl {
     public User findById(int id) {
         try {
             return userMapper.findById(id);
-        } catch (Exception e) {
+        } catch (DataAccessException e) {
             log.error("Error in findById for id: {}", id, e);
             throw new ApplicationException(Errors.DB_ERROR);
         }
@@ -37,7 +38,7 @@ public class UserRepositoryImpl {
     public int insert(User user) {
         try {
             return userMapper.insert(user);
-        } catch (Exception e) {
+        } catch (DataAccessException e) {
             log.error("Error in insert", e);
             throw new ApplicationException(Errors.DB_ERROR);
         }
@@ -46,7 +47,7 @@ public class UserRepositoryImpl {
     public int update(int id, User user) {
         try {
             return userMapper.update(id, user);
-        } catch (Exception e) {
+        } catch (DataAccessException e) {
             log.error("Error in update for id: {}", id, e);
             throw new ApplicationException(Errors.DB_ERROR);
         }
