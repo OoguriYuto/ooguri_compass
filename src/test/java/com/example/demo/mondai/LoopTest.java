@@ -43,4 +43,40 @@ public class LoopTest {
         }
         System.out.println();
     }
+
+    @Test
+    void diagonal() {
+        int size = 5;
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                System.out.print((col == row) ? "*" : " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    @Test
+    void checker() {
+        int size = 8;
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                System.out.print(((row + col) % 2 == 0) ? "* " : "  ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    @Test
+    void cross() {
+        int size = 5;
+        int mid = size / 2;
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                System.out.print((row == mid || col == mid) ? "* " : "  ");
+            }
+            System.out.println();
+        }
+    }
 }
