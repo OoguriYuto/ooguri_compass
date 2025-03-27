@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
+
 @SpringBootTest
 public class UserRepositoryImplTest {
 
@@ -23,8 +25,8 @@ public class UserRepositoryImplTest {
         assertEquals("test@example.com", user.getMail(), "メールアドレスが 'test@example.com' であること");
         assertEquals("secret", user.getPassword(), "パスワードが 'secret' であること");
         assertEquals("USER", user.getRoles(), "役割が 'USER' であること");
-        assertNotNull(user.getCreated(), "作成日時が null であってはならない");
-        assertNotNull(user.getLastLogined(), "最終ログイン日時が null であってはならない");
+        assertEquals(LocalDateTime.of(2023, 1, 1, 0, 0, 0), user.getCreated(), "作成日時が '2023-01-01 00:00:00' であること");
+        assertEquals(LocalDateTime.of(2023, 1, 1, 0, 0, 0), user.getLastLogined(), "最終ログイン日時が '2023-01-01 00:00:00' であること");
         assertEquals(true, user.isEnabled(), "有効フラグが true であること");
     }
 }
