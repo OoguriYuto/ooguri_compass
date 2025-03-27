@@ -79,4 +79,49 @@ public class LoopTest {
             System.out.println();
         }
     }
+
+    @Test
+    void x() {
+        int size = 5;
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                System.out.print((col == row || col == size - row - 1) ? "*" : " ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    void pyramid() {
+        int size = 3;
+        int totalColumns = size * 2 - 1;
+        for (int row = 0; row < size; row++) {
+            int stars = row * 2 + 1;
+            int leftSpaces = (totalColumns - stars) / 2;
+            int rightSpaces = totalColumns - leftSpaces - stars;
+            for (int i = 0; i < leftSpaces; i++) {
+                System.out.print(" ");
+            }
+            for (int i = 0; i < stars; i++) {
+                System.out.print("*");
+            }
+            for (int i = 0; i < rightSpaces; i++) {
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    
+
+    @Test
+    void v() {
+        int size = 4;
+        int totalColumns = size * 2 - 1;
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < totalColumns; col++) {
+                System.out.print((col == row || col == totalColumns - 1 - row) ? "*" : " ");
+            }
+            System.out.println();
+        }
+    }
 }
