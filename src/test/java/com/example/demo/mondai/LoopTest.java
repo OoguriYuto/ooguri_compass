@@ -97,16 +97,21 @@ public class LoopTest {
         int totalColumns = size * 2 - 1;
         for (int row = 0; row < size; row++) {
             int stars = row * 2 + 1;
-            int spaces = (totalColumns - stars) / 2;
-            for (int s = 0; s < spaces; s++) {
+            int leftSpaces = (totalColumns - stars) / 2;
+            int rightSpaces = totalColumns - leftSpaces - stars;
+            for (int i = 0; i < leftSpaces; i++) {
                 System.out.print(" ");
             }
-            for (int star = 0; star < stars; star++) {
+            for (int i = 0; i < stars; i++) {
                 System.out.print("*");
+            }
+            for (int i = 0; i < rightSpaces; i++) {
+                System.out.print(" ");
             }
             System.out.println();
         }
     }
+    
 
     @Test
     void v() {
