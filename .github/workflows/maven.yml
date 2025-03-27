@@ -25,7 +25,7 @@ jobs:
 
       - name: Upload Jacoco coverage report
         if: success()
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v3.3.1
         with:
           name: jacoco-report
           path: target/site/jacoco
