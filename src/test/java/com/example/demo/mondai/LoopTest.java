@@ -124,4 +124,50 @@ public class LoopTest {
             System.out.println();
         }
     }
+
+    @Test
+    void p1() {
+        int n = 5;
+        int number = 1;
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                System.out.print(number);
+                if (col < n - 1) {
+                    System.out.print(" ");
+                }
+                number++;
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    void p2() {
+        int n = 5;
+        int number = 1;
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                System.out.printf("%2d", number);
+                if (col < n - 1) {
+                    System.out.print(" ");
+                }
+                number++;
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    void p3() {
+        int n = 5;
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                System.out.printf("%2d", (row + 1) * (col + 1));
+                if (col < n - 1) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
