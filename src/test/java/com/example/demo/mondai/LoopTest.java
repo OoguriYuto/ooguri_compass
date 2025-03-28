@@ -112,7 +112,6 @@ public class LoopTest {
         }
     }
     
-
     @Test
     void v() {
         int size = 4;
@@ -126,6 +125,17 @@ public class LoopTest {
     }
 
     @Test
+
+    void test(){
+        //3×3の*のマスを作成する
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
     void p1() {
         int n = 5;
         int number = 1;
@@ -169,5 +179,6 @@ public class LoopTest {
             }
             System.out.println();
         }
+
     }
 }
