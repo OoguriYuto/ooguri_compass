@@ -124,4 +124,17 @@ public class LoopTest {
             System.out.println();
         }
     }
+
+    @Test
+    void test(){
+        //3×3の*のマスを作成する
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+    }
 }
