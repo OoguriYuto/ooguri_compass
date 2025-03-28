@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-      security-events: write  # この行を追加して必要な権限を付与
+      security-events: write
 
     steps:
     - name: Checkout repository
@@ -27,3 +27,4 @@ jobs:
       uses: advanced-security/maven-dependency-submission-action@v4
       with:
         package-url: 'pkg:maven/org.apache.logging.log4j/log4j-api@2.24.3?type=jar'
+        distribution: 'release'  # 必須の入力を追加
